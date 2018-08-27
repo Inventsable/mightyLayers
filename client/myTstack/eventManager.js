@@ -8,7 +8,26 @@
   });
 
   csInterface.addEventListener('console', function(evt) {
-    // console.log('JSX: ' + evt.data);
+    console.log('JSX: ' + evt.data);
+  });
+
+  csInterface.addEventListener('com.mightyLayers.parse', function(evt) {
+    console.log('PARSE: ' + evt.data);
+    var result = JSON.parse(evt.data);
+    console.log(result);
+  });
+
+  csInterface.addEventListener('mighty.rollcall', function(evt) {
+    dispatchEvent('mighty.rollanswer', extFolder())
+  });
+
+  csInterface.addEventListener('parse', function(evt) {
+    console.log('Disabled');
+    // console.log('PARSE: ' + evt.data);
+    // var result = JSON.parse(evt.data);
+    // console.log(result);
+    // var allRes = parseAll(evt.data);
+    // console.log(allRes);
   });
 
   csInterface.addEventListener('com.playwrite.answer', function(evt) {

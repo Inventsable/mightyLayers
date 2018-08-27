@@ -1,3 +1,5 @@
+dispatchEvent('mighty.start', extFolder())
+
 var csInterface = new CSInterface();
 var appName = csInterface.hostEnvironment.appName;
 
@@ -18,8 +20,48 @@ var isRadio = true;
 //
 
 
+
 loadUniversalJSXLibraries();
-console.log(appUI);
+// console.log(appUI);
+loadJSX('mightyLayers.jsx')
+
+
+// csInterface.evalScript(`readLayers()`, function(evt){
+//   console.log(evt);
+//   var result = JSON.parse(evt);
+//   console.log(result);
+//   var allRes = parseAll(evt);
+// })
+
+
+function retrieveData(str) {
+  var result = JSON.parse(str);
+  console.log(result);
+}
+
+
+function parseAll(str){
+  var result = JSON.parse(str);
+  for (let [key, value] of Object.entries(result)) {
+    if (typeof value !== 'object') {
+      result[key] = parseAll(value);
+    } else {
+      result[key] = key;
+    }
+  }
+  return result;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 // MANUAL TEST

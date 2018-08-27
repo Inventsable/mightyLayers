@@ -76,7 +76,7 @@ function initMagicMirror(){
   loadBorderWidth();
   callDoc();
   cs.addEventListener(CSInterface.THEME_COLOR_CHANGED_EVENT, onAppThemeColorChanged);
-  cs.addEventListener('documentAfterActivate', reset);
+  // cs.addEventListener('documentAfterActivate', reset);
   cs.addEventListener('applicationActive', callDoc);
   if (navigator.platform.indexOf('Win') > -1) {
     appUI.data.os = 'Win';
@@ -86,8 +86,8 @@ function initMagicMirror(){
 
   buildMagicMirror();
   // buildUINew();
-  console.log(checkboxLogic);
-  console.log(appUI);
+  // console.log(checkboxLogic);
+  // console.log(appUI);
 }
 
 function reset(){
@@ -104,7 +104,7 @@ function callDoc() {
       })
     })
   }
-  console.log(appUI.data);
+  // console.log(appUI.data);
 }
 
 
